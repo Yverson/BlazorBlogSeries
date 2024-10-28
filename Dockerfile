@@ -26,7 +26,7 @@ RUN dotnet publish BlazorBlog.csproj -c $BUILD_CONFIGURATION -o /app/publish /p:
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-EXPOSE 5006
-EXPOSE 5007
+EXPOSE 8080
+EXPOSE 8081
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "BlazorBlog.dll"]
